@@ -23,9 +23,6 @@ public class ForEachJava8 {
             }
         };
 
-
-
-
         Consumer<Integer> inteiros =  (i) -> listaPositivos.add(i);
 
         listaNumeros
@@ -35,7 +32,7 @@ public class ForEachJava8 {
 
         listaNumeros
                 .stream()
-                .filter(ForEachJava8::ehNegativo)
+                .filter(integer -> integer < 0)
                 .forEach(listaPositivos::add);
     }
 
