@@ -26,4 +26,31 @@ public class Cliente {
     public void setIdade(Integer idade) {
         this.idade = idade;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Cliente)) return false;
+
+        Cliente cliente = (Cliente) o;
+
+        if (nome != null ? !nome.equals(cliente.nome) : cliente.nome != null) return false;
+        return idade != null ? idade.equals(cliente.idade) : cliente.idade == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = nome != null ? nome.hashCode() : 0;
+        result = 31 * result + (idade != null ? idade.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                '}';
+    }
 }
