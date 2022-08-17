@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,6 +28,15 @@ public class FlatMapMain {
            add(List.of(bruno, bianca));
            add(List.of(carlos, cesar));
         }};
+
+
+        final List<Cliente> collect = Stream.of(
+                        Stream.of(ana, alandesson),
+                        Stream.of(ana, alandesson),
+                        Stream.of(bruno, bianca),
+                        Stream.of(carlos, cesar)
+                ).flatMap(clienteStream -> clienteStream)
+                .collect(Collectors.toList());
 
         // para achatar os dois streams, use flatMap
         final Stream<Stream<String>> streamStreamNomes = listaDeListas.stream()
