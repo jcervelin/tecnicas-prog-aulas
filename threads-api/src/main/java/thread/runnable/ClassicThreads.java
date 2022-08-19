@@ -1,3 +1,7 @@
+package thread.runnable;
+
+import java.util.concurrent.TimeUnit;
+
 public class ClassicThreads {
 
 
@@ -19,6 +23,12 @@ public class ClassicThreads {
         }, "Gabriel");
         gabriel.start();
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         final Thread mateusMorais = new Thread(() -> {
             contadorHistorias.contarHistorias("Historia do " + Thread.currentThread().getName());
             System.out.println("Minha thread é: " + Thread.currentThread().getName());
@@ -26,6 +36,11 @@ public class ClassicThreads {
         }, "Mateus Morais");
         mateusMorais.start();
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         final Thread rafaelBarbosa = new Thread(() -> {
             contadorHistorias.contarHistorias("Historia do " + Thread.currentThread().getName());
             System.out.println("Minha thread é: " + Thread.currentThread().getName());
@@ -36,7 +51,6 @@ public class ClassicThreads {
 
     }
 }
-
 
 // PID kill
 

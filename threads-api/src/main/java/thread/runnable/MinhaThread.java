@@ -1,3 +1,5 @@
+package thread.runnable;
+
 public class MinhaThread extends Thread {
 
     public MinhaThread(String name) {

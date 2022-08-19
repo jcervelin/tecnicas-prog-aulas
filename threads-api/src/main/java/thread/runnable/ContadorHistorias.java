@@ -1,3 +1,5 @@
+package thread.runnable;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ContadorHistorias {
